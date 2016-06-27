@@ -30,6 +30,9 @@ pro1-tester
 ```
 を実行するとテスト結果がでます。
 
+※KO Unix では`pro1-tester`の前に`mkdir tmp`を実行しないとうまくいかないみたい
+
+
 |オプション|説明|
 |--:|:--|
 |`-d`|デフォルトでは`testcase.yml`がある場合はそちらを実行しますが、このオプションをつけると`testcase.default.yml`を使うようになります|
@@ -40,6 +43,7 @@ KO の Unix で使う場合、Rubyはインストールされているので gem
 `--user-install`オプションをつけてユーザー領域に gem をインストールするようにします：
 ```
 gem install pro1-tester --user-install
+gem install rspec --user-install
 ```
 
 `pro1-tester`コマンドを使えるようにパスを通します。
