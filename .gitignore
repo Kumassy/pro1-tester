@@ -54,6 +54,7 @@ build-iPhoneSimulator/
 *.c
 /**/*.c
 testcase.yml
+testcase.default.yml
 /tmp/**/*
 /tmp/*
 /**/tmp/**/*

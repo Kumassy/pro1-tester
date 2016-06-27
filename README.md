@@ -5,21 +5,8 @@ BDD for Pro1
 プロ1のテストを自動化するためのスクリプトです。
 テストを実行するには`testcase.yml`を書く必要がありますが、 https://github.com/Kumassy/pro1-tester-testcases で共有しています。
 
-# How to use...
-**Vagrant** でも使って **CentOS** 環境で動かしましょう。
-Ruby のインストールを事前にしておきましょう。
-
-テストスクリプトは **Gem** として配布しているので、次のコマンドでインストールしてください：
-```
-gem install pro1-tester
-```
-
-KO の Unix などにインストールするときは`--user-install`オプションをつけてください：
-```
-gem install pro1-tester --user-install
-```
-
-`testcase.yml` をソースコード `*.c` と同じディレクトリに置いてください：
+# Usage
+`testcase.default.yml` または `testcase.yml` をソースコード `*.c` と同じディレクトリに置いてください：
 ```
 .
 ├── assignment_09-a-01.c
@@ -43,15 +30,55 @@ pro1-tester
 ```
 を実行するとテスト結果がでます。
 
+|オプション|説明|
+|--:|:--|
+|`-d`|デフォルトでは`testcase.yml`がある場合はそちらを実行しますが、このオプションをつけると`testcase.default.yml`を使うようになります|
+|`-s`| **ストリクトモード** で実行します。デフォルトでは標準出力と`expect`はスペースと改行を無視して比較されますが、ストリクトモードでは厳密に比較します|
 
-`-d` オプション：`testcase.yml`がある場合でも`testcase.default.yml`を使うようにします  
-`-s` オプション：「ストリクトモード」デフォルトでは標準出力と`expect`はスペースと改行を無視して比較されますが、無視されると困る場合は`-s`をつけてください
+# Setup (KO Unix)
+KO の Unix で使う場合、Rubyはインストールされているので gem のインストールだけすれば OK です。  
+`--user-install`オプションをつけてユーザー領域に gem をインストールするようにします：
+```
+gem install pro1-tester --user-install
+```
 
-# How to use (with docker)
-Ruby とかのインストールが面倒くさいときは Docker から実行してもよろしいかと思います。
+`pro1-tester`コマンドを使えるようにパスを通します。
 
+```
+vim ~/.bash_profile
+```
+
+`PATH=$PATH:$HOME/bin`という行があると思うので、次のように`$HOME/.gem/ruby/2.3.0/bin`を追記します：
+
+```
+# PATH=$PATH:$HOME/bin  # 変更前
+PATH=$PATH:$HOME/bin:$HOME/.gem/ruby/2.3.0/bin #変更後
+```
+
+`.bash_profile`を再読み込みします
+```
+source ~/.bash_profile
+```
+
+これでパスが通りました
+```
+which pro1-tester
+~/.gem/ruby/2.3.0/bin/pro1-tester
+```
+
+# Setup (Basic)
+**Vagrant** でも使って **CentOS** 環境で動かしましょう。
+Ruby のインストールをしましょう。
+
+そして、次のコマンドで gem をインストールしてください：
+```
+gem install pro1-tester
+```
+
+# Setup (docker)
 ## Docker イメージのビルド
 ```
+git clone https://github.com/Kumassy/pro1-tester
 cd pro1-tester
 docker build -t my-ruby-image .
 ```
