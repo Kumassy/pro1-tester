@@ -47,7 +47,6 @@ pro1-tester
 `-d` オプション：`testcase.yml`がある場合でも`testcase.default.yml`を使うようにします  
 `-s` オプション：「ストリクトモード」デフォルトでは標準出力と`expect`はスペースと改行を無視して比較されますが、無視されると困る場合は`-s`をつけてください
 
-
 # How to use (with docker)
 Ruby とかのインストールが面倒くさいときは Docker から実行してもよろしいかと思います。
 
