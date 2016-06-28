@@ -19,7 +19,7 @@ module Pro1Tester
     end
 
     def clear
-      FileUtils.rm_r(File.join(DIR_PWD, DIST_DIR))
+      FileUtils.rm_r(File.join(DIR_PWD, DIST_DIR)) if Dir.exists? DIST_DIR
     end
   end
 end
