@@ -61,8 +61,8 @@ module Pro1Tester
       testcases = task["testcase"]
 
       testcases.each do |testcase|
-        # Open3.popen3(File.join(DIR_BASE, DIST_DIR, src_file_identifer)) do |stdin, stdout, stderr, wait_thr|
-        Open3.popen3(File.join(DIR_PWD, DIST_DIR, src_file_identifer)) do |stdin, stdout, stderr, wait_thr|
+        args = testcase.fetch('args', '')
+        Open3.popen3(File.join(DIR_PWD, DIST_DIR, src_file_identifer) + ' ' + args) do |stdin, stdout, stderr, wait_thr|
           if testcase.has_key? "input"
             stdin.write testcase["input"]
             stdin.close
