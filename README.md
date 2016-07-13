@@ -95,6 +95,19 @@ docker run -it --rm -v "$PWD":/app/ -w /app/ my-ruby-image pro1-tester
 **YAML** の記法で書いていきます。
 基本的に雰囲気で書けばOKです。
 
+```
+- target: a-01
+  testcase:
+    - input: |
+        stdin
+      args: |
+        command line args
+      expect: |
+        expectation of stdout
+      label: |
+        printed when this testcase raises error
+
+```
 
 - 出力だけ見るプログラムの場合、`input`は省略可能です。
 - `label`は`it`に渡すアレです。省略した場合はデフォルトのラベルが使われます。
