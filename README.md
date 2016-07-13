@@ -41,7 +41,6 @@ KO の Unix で使う場合、Rubyはインストールされているので gem
 `--user-install`オプションをつけてユーザー領域に gem をインストールするようにします：
 ```
 gem install pro1-tester --user-install
-gem install rspec --user-install
 ```
 
 `pro1-tester`コマンドを使えるようにパスを通します。
