@@ -53,8 +53,8 @@ vim ~/.bash_profile
 `PATH=$PATH:$HOME/bin`という行があると思うので、次のように`$HOME/.gem/ruby/2.3.0/bin`を追記します：
 
 ```
-# PATH=$PATH:$HOME/bin  # 変更前
-PATH=$PATH:$HOME/bin:$HOME/.gem/ruby/2.3.0/bin #変更後
+# 追記
+PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 ```
 
 `.bash_profile`を再読み込みします
